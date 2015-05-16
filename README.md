@@ -1,6 +1,23 @@
 # Wire Dipole S-Parameter Generator
 A simple python script which calculates the impedance and scattering parameters of a dipole antenna. Can output to a Touchstone .s1p file.
 
+##Arguments
+```
+peter@salish:~/scripts/dipole-sparams$ ./dipole-sparams.py -h
+usage: dipole-sparams.py [-h] [-f1 F1] [-f2 F2] [-l L] [-d D] [-p P] [-o O]
+                         [--skip-output]
+
+optional arguments:
+  -h, --help     show this help message and exit
+  -f1 F1         Lower frequency (MHz)
+  -f2 F2         Upper frequency (MHz) (optional)
+  -l L           Dipole length (m)
+  -d D           Wire diameter (mm)
+  -p P           Number of points to sweep, minimum 1
+  -o O           Filename for Touchstone output (optional)
+  --skip-output  Skip printing the table of values
+```
+
 ##Notes
 
 The approxmation used is only valid when the diameter of the wire is much less than the length. The approximation also assumes that the near field is only free space. Nearby metal objects will affect the feed impedance somewhat. If this an issue for you, you may want to move to a full-blown FEM simulation, or just build your system and measure S11 with a network analyzer.
